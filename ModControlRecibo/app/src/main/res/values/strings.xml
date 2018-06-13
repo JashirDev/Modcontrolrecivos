@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">ModControlRecibo</string>
+    <string name="app_name">ModuloControlrecibo</string>
+    <string name="nombre">Ingrese Nombre o Apellido</string>
+    <string name="concepto">Ingrese concepto de pago</string>
+    <string name="perido">Ingrese el perido</string>
+    <string name="recibo">Ingrese el recibo</string>
+    <string name="btbuscat">Buscar</string>
 </resources>
