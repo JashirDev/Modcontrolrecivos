@@ -13,6 +13,13 @@ public interface ControlService {
     @GET("recaudaciones")
     Call<PersonaRespuesta> obtenerlistapersona();
 
+    @FormUrlEncoded
+    @POST("recaudaciones/detallada")
+    Call<PersonaRespuesta> postobtenerlistapersona(@Field("nombre") String nombre ,@Field("id_concepto") String id_concepto,
+     @Field("voucher")String voucher,
+    @Field("periodoI")String periodoI,
+    @Field("periodoF")String periodoF,
+    @Field("dni")String dni);
 
-
+ 
 }

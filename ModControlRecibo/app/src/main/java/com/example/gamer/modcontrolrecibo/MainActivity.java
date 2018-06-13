@@ -30,10 +30,32 @@ public class MainActivity extends AppCompatActivity {
                 .baseUrl("https://api-modulocontrol.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        obtenerdatos();
+        obtenerdatos2();
     }
 
-    private void obtenerdatos() {
+    private void obtenerdatos2() {
+        ControlService controlService = retrofit.create(ControlService.class);
+        Call<PersonaRespuesta> call= controlService.postobtenerlistapersona("ARANDA",null,null,null,null,null);
+        call.enqueue(new Callback<PersonaRespuesta>() {
+            @Override
+            public void onResponse(Call<PersonaRespuesta> call, Response<PersonaRespuesta> response) {
+                Log.e(TAG,"error "+response.code());
+                Log.e(TAG,"error "+response.toString());
+                System.out.println(response.code());
+                if (response.isSuccessful()){
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PersonaRespuesta> call, Throwable t) {
+
+            }
+        });
+    }
+
+  /*  private void obtenerdatos() {
         ControlService controlService = retrofit.create(ControlService.class);
         Call<PersonaRespuesta> call= controlService.obtenerlistapersona();
         call.enqueue(new Callback<PersonaRespuesta>() {
@@ -59,5 +81,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 }
