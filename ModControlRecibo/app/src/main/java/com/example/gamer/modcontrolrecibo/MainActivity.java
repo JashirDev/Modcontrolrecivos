@@ -30,14 +30,10 @@ public class MainActivity extends AppCompatActivity {
                 .baseUrl("https://api-modulocontrol.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        obternerdatos();
+        obtenerdatos();
     }
 
-    public void obternerdatos() {
-
-
-
-
+    private void obtenerdatos() {
         ControlService controlService = retrofit.create(ControlService.class);
         Call<PersonaRespuesta> call= controlService.obtenerlistapersona();
         call.enqueue(new Callback<PersonaRespuesta>() {
@@ -51,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     ArrayList<Persona> listapersona = personaRespuesta.getData();
                     for(int i= 0 ; i< 5;i++){
                         Persona p= listapersona.get(i);
-                        Toast.makeText(getApplicationContext(), "Mantén pulsada una imagen para guardarla", Toast.LENGTH_LONG).show();
-
+                        Toast.makeText(getApplicationContext(), "Prueba"+p.getApe_nom(), Toast.LENGTH_SHORT).show();
                         Log.i("TAG","Persona"+p.getApe_nom()+p.getId_concepto());
                     }
                 }
@@ -63,5 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("TAG","Persona"+t.getMessage());
             }
         });
+
     }
 }

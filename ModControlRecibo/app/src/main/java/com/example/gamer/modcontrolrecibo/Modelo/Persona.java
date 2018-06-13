@@ -2,6 +2,7 @@ package com.example.gamer.modcontrolrecibo.Modelo;
 
 public class Persona {
     private String ape_nom;
+    private String nombre;
     private int id_rec ;
     private int  id_alum;
     private int id_concepto ;
@@ -82,5 +83,13 @@ public class Persona {
 
     public void setId_facultad(String id_facultad) {
         this.id_facultad = id_facultad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }
