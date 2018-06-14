@@ -3,8 +3,11 @@ package com.example.gamer.modcontrolrecibo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.example.gamer.modcontrolrecibo.Adaptadores.PersonaAdapter;
 import com.example.gamer.modcontrolrecibo.Modelo.Persona;
 import com.example.gamer.modcontrolrecibo.Modelo.PersonaRespuesta;
 import com.example.gamer.modcontrolrecibo.Servicio.ControlService;
@@ -19,11 +22,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ResultadoBusqueda extends AppCompatActivity {
     Retrofit retrofit;
+    RecyclerView reciclador;
     static private final  String TAG="PERSONA";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado_busqueda);
+
+        reciclador= (RecyclerView)findViewById(R.id.reciclador);
+        reciclador.setLayoutManager(new LinearLayoutManager(this));
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api-modulocontrol.herokuapp.com/")
@@ -53,6 +60,10 @@ public class ResultadoBusqueda extends AppCompatActivity {
 
                     PersonaRespuesta personaRespuesta=response.body();
                     ArrayList<Persona> listapersona = personaRespuesta.getData();
+
+                    PersonaAdapter adapter = new PersonaAdapter(listapersona);
+                    reciclador.setAdapter(adapter);
+
                     for(Persona list : listapersona){
 
                         Log.i("getNombre", list.getNombre());

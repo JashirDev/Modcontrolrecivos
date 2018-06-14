@@ -5,8 +5,6 @@ import com.google.gson.annotations.SerializedName;
 public class Persona {
     @SerializedName("ape_nom")
     private String ape_nom;
-    @SerializedName("nombre")
-    private String nombre;
     @SerializedName("id_rec")
     private int id_rec ;
     @SerializedName("id_alum")
@@ -17,12 +15,26 @@ public class Persona {
     private String  id_registro;
     @SerializedName("numero")
     private int numero;
+    @SerializedName("id_facultad")
+    private String  id_facultad ;
+
+
+    @SerializedName("nombre")
+    private String nombre;
+
+    @SerializedName("concepto")
+    private String  concepto;
+
+    @SerializedName("recibo")
+    private String  recibo;
+
+    @SerializedName("codigo")
+    private String  codigo;
+
     @SerializedName("importe")
     private double importe;
     @SerializedName("fecha")
     private String  fecha;
-    @SerializedName("id_facultad")
-    private String  id_facultad ;
 
 
     public String getApe_nom() {
@@ -103,5 +115,29 @@ public class Persona {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getConcepto() {
+        return concepto;
+    }
+
+    public void setConcepto(String concepto) {
+        this.concepto = concepto;
+    }
+
+    public String getRecibo() {
+        return recibo;
+    }
+
+    public void setRecibo(String recibo) {
+        this.recibo = recibo;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }
