@@ -1,25 +1,18 @@
 package com.example.gamer.modcontrolrecibo;
 
+import android.content.Intent;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.example.gamer.modcontrolrecibo.Modelo.Persona;
-import com.example.gamer.modcontrolrecibo.Modelo.PersonaRespuesta;
-import com.example.gamer.modcontrolrecibo.Servicio.ControlService;
+import android.view.View;
 
-import java.util.ArrayList;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextInputEditText etnombres,etConceptopago,etPeridos,etRecibos;
     Retrofit retrofit;
     static private final  String TAG="PERSONA";
     @Override
@@ -27,73 +20,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        retrofit = new Retrofit.Builder()
+        etnombres=findViewById(R.id.etNombre);
+        etConceptopago=findViewById(R.id.etConcepto_pago);
+        etPeridos=findViewById(R.id.etPerido);
+        etRecibos=findViewById(R.id.etRecibo);
+
+       /* retrofit = new Retrofit.Builder()
                 .baseUrl("https://api-modulocontrol.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        obtenerdatos2();
+                .build();*/
+
     }
 
-    private void obtenerdatos2() {
-        ControlService controlService = retrofit.create(ControlService.class);
-        PersonaRespuesta personaRespuesta = new PersonaRespuesta("ARANDA","","","","","");
-        Call<PersonaRespuesta>call = controlService.postobtenerlistapersona(personaRespuesta);
-        call.enqueue(new Callback<PersonaRespuesta>() {
-            @Override
-            public void onResponse(Call<PersonaRespuesta> call, Response<PersonaRespuesta> response) {
-                Log.e(TAG,"error "+response.message());
-                Log.e(TAG,"error "+response.toString());
-                System.out.println(response.code());
-                if (response.isSuccessful()){
 
-                    PersonaRespuesta personaRespuesta=response.body();
-                    ArrayList<Persona> listapersona = personaRespuesta.getData();
-                    for(Persona list : listapersona){
+    public void busacar(View view) {
+        String nombre="",concepto="",perodo="",recibo="";
+        nombre=etnombres.getText().toString();
+        concepto=etConceptopago.getText().toString();
+        perodo=etPeridos.getText().toString();
+        recibo=etRecibos.getText().toString();
 
-                        Log.i("getNombre", list.getNombre());
-                    }
-/*
-                    for(int i= 0 ; i< listapersona.size();i++){
-                        Persona p= listapersona.get(i);
-                        Toast.makeText(getApplicationContext(), "Prueba"+p.getApe_nom(), Toast.LENGTH_SHORT).show();
-                        Log.i("TAG","Persona"+p.getApe_nom()+p.getId_concepto());
-                    }*/
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PersonaRespuesta> call, Throwable t) {
-
-            }
-        });
+        Intent i = new Intent(MainActivity.this,ResultadoBusqueda.class);
+        i.putExtra("pasarnombre",nombre);
+        i.putExtra("pasarconcepto",concepto);
+        i.putExtra("pasarperodo",perodo);
+        i.putExtra("pasarrecibo",recibo);
+        startActivity(i);
     }
 
-  /*  private void obtenerdatos() {
-        ControlService controlService = retrofit.create(ControlService.class);
-        Call<PersonaRespuesta> call= controlService.obtenerlistapersona();
-        call.enqueue(new Callback<PersonaRespuesta>() {
-            @Override
-            public void onResponse(Call<PersonaRespuesta> call, Response<PersonaRespuesta> response) {
-                Log.e(TAG,"error "+response.code());
-                Log.e(TAG,"error "+response.toString());
-                System.out.println(response.code());
-                if (response.isSuccessful()){
-                    PersonaRespuesta personaRespuesta=response.body();
-                    ArrayList<Persona> listapersona = personaRespuesta.getData();
-                    for(int i= 0 ; i< 5;i++){
-                        Persona p= listapersona.get(i);
-                        Toast.makeText(getApplicationContext(), "Prueba"+p.getApe_nom(), Toast.LENGTH_SHORT).show();
-                        Log.i("TAG","Persona"+p.getApe_nom()+p.getId_concepto());
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PersonaRespuesta> call, Throwable t) {
-                Log.i("TAG","Persona"+t.getMessage());
-            }
-        });
-
-    }*/
 }

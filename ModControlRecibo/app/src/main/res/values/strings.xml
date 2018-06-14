@@ -5,4 +5,9 @@
     <string name="perido">Ingrese el perido</string>
     <string name="recibo">Ingrese el recibo</string>
     <string name="btbuscat">Buscar</string>
+    <string name="busquedanombre">Nombre y Apellido</string>
+    <string name="busqueconcepto">Concepto</string>
+    <string name="busquedacodigo">Codigo</string>
+    <string name="busquedarecibo">Recibo</string>
+    <string name="busquedafecha">Fecha</string>
 </resources>

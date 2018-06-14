@@ -50,6 +50,7 @@
     </android.support.design.widget.TextInputLayout>
     <Button
 
+        android:onClick="busacar"
         android:id="@+id/btBuscar"
         android:text="@string/btbuscat"
         android:layout_width="match_parent"
