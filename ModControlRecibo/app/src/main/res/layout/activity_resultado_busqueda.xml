@@ -12,42 +12,77 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:padding="5dp"
-            android:id="@+id/etbus_nombre"
-            android:text="@string/busquedanombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:padding="5dp"
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="5dp"
+                android:id="@+id/etbus_nombre"
+                android:text="@string/busquedanombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-            android:id="@+id/etbus_concepto"
-            android:text="@string/busqueconcepto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:padding="5dp"
+        </LinearLayout>
 
-            android:id="@+id/etbus_codigo"
-            android:text="@string/busquedacodigo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:padding="5dp"
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="5dp"
 
-            android:id="@+id/etbus_recibo"
-            android:text="@string/busquedarecibo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:padding="5dp"
+                android:id="@+id/etbus_concepto"
+                android:text="@string/busqueconcepto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-            android:id="@+id/etbus_fecha"
-            android:text="@string/busquedafecha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="5dp"
 
+                android:id="@+id/etbus_codigo"
+                android:text="@string/busquedacodigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="5dp"
+
+                android:id="@+id/etbus_recibo"
+                android:text="@string/busquedarecibo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="5dp"
+
+                android:id="@+id/etbus_fecha"
+                android:text="@string/busquedafecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
 
     </LinearLayout>

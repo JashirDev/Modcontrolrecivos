@@ -24,6 +24,7 @@ public class PersonaAdapter extends RecyclerView.Adapter<PersonaAdapter.ViewHold
     public ViewHolderPersona onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_persona,parent,false);
 
+
         return new ViewHolderPersona(v);
     }
 
@@ -33,7 +34,7 @@ public class PersonaAdapter extends RecyclerView.Adapter<PersonaAdapter.ViewHold
         holder.cvnombre.setText(listapersona.get(position).getNombre());
         holder.cvconcepto.setText(listapersona.get(position).getConcepto());
         holder.cvcodigo.setText(listapersona.get(position).getCodigo());
-        holder.cvrecivo.setText(listapersona.get(position).getRecibo());
+        holder.cvrecivo.setText(String.valueOf(listapersona.get(position).getImporte()));
         holder.cvfecha.setText(listapersona.get(position).getFecha());
 
 

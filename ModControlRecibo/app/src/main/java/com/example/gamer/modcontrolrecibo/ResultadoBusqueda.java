@@ -66,7 +66,7 @@ public class ResultadoBusqueda extends AppCompatActivity {
 
                     for(Persona list : listapersona){
 
-                        Log.i("getNombre", list.getNombre());
+                        Log.i("getNombre", list.getNombre()+list.getRecibo()+list.getImporte());
                     }
 
                 }
