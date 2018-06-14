@@ -24,6 +24,9 @@ public class PersonaRespuesta {
     @SerializedName("dni")
     private String dni;
 
+    public PersonaRespuesta() {
+    }
+
     public PersonaRespuesta(String nombre, String concepto, String voucher, String periodoInicial, String periodoFInal, String dni) {
         this.nombre = nombre;
         this.concepto = concepto;

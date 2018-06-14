@@ -48,12 +48,16 @@ public class MainActivity extends AppCompatActivity {
 
                     PersonaRespuesta personaRespuesta=response.body();
                     ArrayList<Persona> listapersona = personaRespuesta.getData();
+                    for(Persona list : listapersona){
 
+                        Log.i("getNombre", list.getNombre());
+                    }
+/*
                     for(int i= 0 ; i< listapersona.size();i++){
                         Persona p= listapersona.get(i);
                         Toast.makeText(getApplicationContext(), "Prueba"+p.getApe_nom(), Toast.LENGTH_SHORT).show();
                         Log.i("TAG","Persona"+p.getApe_nom()+p.getId_concepto());
-                    }
+                    }*/
 
                 }
             }
