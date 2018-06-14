@@ -11,6 +11,7 @@ import com.example.gamer.modcontrolrecibo.Servicio.ControlService;
 
 import java.util.ArrayList;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,15 +36,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void obtenerdatos2() {
         ControlService controlService = retrofit.create(ControlService.class);
-        Call<PersonaRespuesta> call= controlService.postobtenerlistapersona("ARANDA",null,null,null,null,null);
+        PersonaRespuesta personaRespuesta = new PersonaRespuesta("ARANDA","","","","","");
+        Call<PersonaRespuesta>call = controlService.postobtenerlistapersona(personaRespuesta);
         call.enqueue(new Callback<PersonaRespuesta>() {
             @Override
             public void onResponse(Call<PersonaRespuesta> call, Response<PersonaRespuesta> response) {
-                Log.e(TAG,"error "+response.code());
+                Log.e(TAG,"error "+response.message());
                 Log.e(TAG,"error "+response.toString());
                 System.out.println(response.code());
                 if (response.isSuccessful()){
 
+                    PersonaRespuesta personaRespuesta=response.body();
+                    ArrayList<Persona> listapersona = personaRespuesta.getData();
+
+                    for(int i= 0 ; i< listapersona.size();i++){
+                        Persona p= listapersona.get(i);
+                        Toast.makeText(getApplicationContext(), "Prueba"+p.getApe_nom(), Toast.LENGTH_SHORT).show();
+                        Log.i("TAG","Persona"+p.getApe_nom()+p.getId_concepto());
+                    }
 
                 }
             }

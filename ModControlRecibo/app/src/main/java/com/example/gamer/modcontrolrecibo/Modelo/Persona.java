@@ -1,15 +1,27 @@
 package com.example.gamer.modcontrolrecibo.Modelo;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Persona {
+    @SerializedName("ape_nom")
     private String ape_nom;
+    @SerializedName("nombre")
     private String nombre;
+    @SerializedName("id_rec")
     private int id_rec ;
+    @SerializedName("id_alum")
     private int  id_alum;
+    @SerializedName("id_concepto")
     private int id_concepto ;
+    @SerializedName("id_registro")
     private String  id_registro;
+    @SerializedName("numero")
     private int numero;
+    @SerializedName("importe")
     private double importe;
+    @SerializedName("fecha")
     private String  fecha;
+    @SerializedName("id_facultad")
     private String  id_facultad ;
 
 
