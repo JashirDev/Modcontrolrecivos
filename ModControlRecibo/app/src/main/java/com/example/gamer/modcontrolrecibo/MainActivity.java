@@ -25,11 +25,6 @@ public class MainActivity extends AppCompatActivity {
         etPeridos=findViewById(R.id.etPerido);
         etRecibos=findViewById(R.id.etRecibo);
 
-       /* retrofit = new Retrofit.Builder()
-                .baseUrl("https://api-modulocontrol.herokuapp.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();*/
-
     }
 
 

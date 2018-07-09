@@ -13,6 +13,8 @@ import com.example.gamer.modcontrolrecibo.Modelo.PersonaRespuesta;
 import com.example.gamer.modcontrolrecibo.Servicio.ControlService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -62,12 +64,9 @@ public class ResultadoBusqueda extends AppCompatActivity {
                     ArrayList<Persona> listapersona = personaRespuesta.getData();
 
                     PersonaAdapter adapter = new PersonaAdapter(listapersona);
+                    Map<String, ArrayList<Persona>> nombreMap=new HashMap<String, ArrayList<Persona>>();
+
                     reciclador.setAdapter(adapter);
-
-                    for(Persona list : listapersona){
-
-                        Log.i("getNombre", list.getNombre()+list.getRecibo()+list.getImporte());
-                    }
 
                 }
             }
